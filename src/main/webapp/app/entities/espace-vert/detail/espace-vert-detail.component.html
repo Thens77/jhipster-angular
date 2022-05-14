@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="espaceVert">
+      <h2 data-cy="espaceVertDetailsHeading"><span>Espace Vert</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ espaceVert.id }}</span>
+        </dd>
+        <dt><span>Libelle</span></dt>
+        <dd>
+          <span>{{ espaceVert.libelle }}</span>
+        </dd>
+        <dt><span>Photo</span></dt>
+        <dd>
+          <span>{{ espaceVert.photo }}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+          <span>{{ espaceVert.user?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+ <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
+ 	<button type="button" [routerLink]="['/espace-vert', espaceVert.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+ </div>
+      
+    </div>
+  </div>
+</div>

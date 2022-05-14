@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="extraUser">
+      <h2 data-cy="extraUserDetailsHeading"><span>Extra User</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ extraUser.id }}</span>
+        </dd>
+        <dt><span>Role</span></dt>
+        <dd>
+          <span>{{ extraUser.role }}</span>
+        </dd>
+        <dt><span>Utilisateur</span></dt>
+        <dd>
+          <div *ngIf="extraUser.utilisateur">
+            <a [routerLink]="['/utilisateur', extraUser.utilisateur?.id, 'view']">{{ extraUser.utilisateur?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/extra-user', extraUser.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

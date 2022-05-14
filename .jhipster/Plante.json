@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20220504191618",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "plante",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "photo",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "not an ignored comment",
+  "jpaMetamodelFiltering": false,
+  "name": "Plante",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "typePlante",
+      "otherEntityRelationshipName": "plante",
+      "relationshipName": "typeplante",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

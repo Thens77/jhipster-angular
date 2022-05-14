@@ -1,0 +1,82 @@
+<div>
+  <h2 id="page-heading" data-cy="EspaceVertHeading">
+    <span>Espace Verts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-espace-vert"
+        [routerLink]="['/espace-vert/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Espace Vert </span>
+      </button>
+    </div>
+  </h2>
+
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="espaceVerts?.length === 0">
+    <span>No espaceVerts found</span>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card m-3" style="width:400px;" *ngFor="let espaceVert of espaceVerts; trackBy: trackId" data-cy="entityTable" >
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img
+            src='{{espaceVert.photo}}'
+            class="card-img-top"
+          />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"> {{espaceVert.id}} - </h5>
+          <p class="card-text">
+            {{espaceVert.libelle}}
+          </p>
+          <div class="btn-group">
+            <button
+              type="submit"
+              [routerLink]="['/espace-vert', espaceVert.id, 'view']"
+              class="btn btn-info btn-sm"
+              data-cy="entityDetailsButton"
+            >
+              <fa-icon icon="eye"></fa-icon>
+              <span class="d-none d-md-inline">View</span>
+            </button>
+          <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
+          <button 
+              type="submit"
+              [routerLink]="['/espace-vert', espaceVert.id, 'edit']"
+              class="btn btn-primary btn-sm"
+              data-cy="entityEditButton"
+            >
+              <fa-icon icon="pencil-alt"></fa-icon>
+              <span class="d-none d-md-inline">Edit</span>
+            </button >
+    
+            <button type="submit" (click)="delete(espaceVert)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+              <fa-icon icon="times"></fa-icon>
+              <span class="d-none d-md-inline">Delete</span>
+            </button>
+          </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+   
+  
+</div>

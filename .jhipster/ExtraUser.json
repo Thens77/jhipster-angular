@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20220504191628",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "extra_user",
+  "fields": [
+    {
+      "fieldName": "role",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ExtraUser",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "utilisateur",
+      "otherEntityRelationshipName": "extraUser",
+      "ownerSide": true,
+      "relationshipName": "utilisateur",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}
